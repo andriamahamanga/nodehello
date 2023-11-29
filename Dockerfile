@@ -1,1 +1,2 @@
-D
+FROM alpine
+CMD ["echo", "Hello Rija!"]
