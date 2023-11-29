@@ -5,3 +5,7 @@ steps:
       - '-t'
       - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf'
       - .
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf'
