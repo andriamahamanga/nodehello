@@ -1,0 +1,6 @@
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - '-t'
+      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf'
+      - .
