@@ -3,9 +3,9 @@ steps:
     args:
       - build
       - '-t'
-      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf'
+      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss'
       - .
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf:latest'
+      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
