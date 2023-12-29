@@ -1,3 +1,4 @@
-FROM alpine
-expose 8080
-CMD ["echo", "Hello Rija!"]
+FROM node
+COPY main.js .
+expose 8081
+CMD ["node", "main.js"]
