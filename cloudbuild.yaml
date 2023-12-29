@@ -1,3 +1,9 @@
+substitutions:
+  _PROJECT_ID: 'upgradlabs-1695429666985'  # Replace with your actual project ID.
+  _IMAGE_NAME: 'gcr.io/${_PROJECT_ID}/my-app'
+  _TAG_NAME: '0.0.1'
+  _REGION: 'us-central1'  # Replace with your preferred region.
+  _SERVICE_NAME: 'my-cloud-run-service'  # Replace with your preferred Cloud Run service name.
 steps:
   - name: gcr.io/cloud-builders/docker
     args:
@@ -18,7 +24,8 @@ steps:
     - '${_SERVICE_NAME}'
     - '--image=us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
     - '--platform=managed'
-    - '--region=us-central1'
+    - '--region=${_REGION}'
     - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
+  
   images:
   - '${_IMAGE_NAME}:${_TAG_NAME}'  # Reference the dynamic image name and tag.
