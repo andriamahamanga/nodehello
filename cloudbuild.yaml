@@ -20,6 +20,5 @@ steps:
     - '--platform=managed'
     - '--region=us-central1'
     - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
-  
   images:
   - '${_IMAGE_NAME}:${_TAG_NAME}'  # Reference the dynamic image name and tag.
