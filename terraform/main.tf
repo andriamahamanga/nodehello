@@ -1,18 +1,22 @@
-resource "google_container_registry" "registry" {
-  project  = project=vibrant-petal-406618
+resource "google_artifact_registry_repository" "my-registre" {
+  repository_id = "my-registre"
   location = "us-central1"
+  description   = "registry with terraform"
+  format  = "docker"
 }
 
 resource "google_cloudbuild_trigger" "react-trigger" {
+  location = "us-central1"
+
   github {
-    owner = "andriamahamanga"
-    name  = "my-repos"
-    push {
-      branch = "main"
-      //or
-      //tag    = "production"
+     name  = "nodehello" 
+     owner = "andriamahamanga" 
+
+     push {
+         branch       = "main" 
     }
-  }
+}
+
   filename      = "terraform/cloudbuild.yaml"
   ignored_files = [".gitignore", "terraform/*"]
   # build {
