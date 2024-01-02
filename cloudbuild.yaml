@@ -16,17 +16,17 @@ steps:
       - push
       - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
   # Deploy to Cloud Run.
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    args:
-    - 'run'
-    - 'deploy'
-    - '${_SERVICE_NAME}'
-    - '--image=us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
-    - '--platform=managed'
-    - '--region=${_REGION}'
-    - '--port=8081'
-    - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
+#  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#    entrypoint: 'gcloud'
+#    args:
+#    - 'run'
+#    - 'deploy'
+#    - '${_SERVICE_NAME}'
+#    - '--image=us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
+#    - '--platform=managed'
+#    - '--region=${_REGION}'
+#    - '--port=8081'
+#    - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
   
 images:
   - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'  # Reference the dynamic image name and tag.
