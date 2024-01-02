@@ -13,7 +13,7 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'
+      - 'us-docker.pkg.dev/vibrant-petal-406618/my-registre/nodesss:latest'
   # Deploy to Cloud Run.
 #  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #    entrypoint: 'gcloud'
