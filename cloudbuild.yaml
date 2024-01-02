@@ -28,4 +28,4 @@ steps:
 #    - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
   
 images:
-  - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss:latest'  # Reference the dynamic image name and tag.
+  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre:latest'  # Reference the dynamic image name and tag.
