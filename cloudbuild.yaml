@@ -8,12 +8,12 @@ steps:
     args:
       - build
       - '-t'
-      - 'us-docker.pkg.dev/vibrant-petal-406618/my-registre/nodesss'
+      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre'
       - .
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - 'us-docker.pkg.dev/vibrant-petal-406618/my-registre/nodesss:latest'
+      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre:latest'
   # Deploy to Cloud Run.
 #  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #    entrypoint: 'gcloud'
