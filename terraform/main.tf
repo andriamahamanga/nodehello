@@ -17,7 +17,7 @@ resource "google_cloudbuild_trigger" "react-trigger" {
     }
 }
 
-  filename      = "terraform/cloudbuild.yaml"
+  filename      = "cloudbuild.yaml"
   ignored_files = [".gitignore", "terraform/*"]
   # build {
   #   step {
