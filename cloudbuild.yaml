@@ -13,7 +13,7 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre:latest'
+      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'
   # Deploy to Cloud Run.
 #  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #    entrypoint: 'gcloud'
@@ -28,4 +28,4 @@ steps:
 #    - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
   
 images:
-  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre:latest'  # Reference the dynamic image name and tag.
+  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
