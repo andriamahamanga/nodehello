@@ -8,7 +8,7 @@ steps:
     args:
       - build
       - '-t'
-      - 'us-docker.pkg.dev/vibrant-petal-406618/testa-artf/nodesss'
+      - 'us-docker.pkg.dev/vibrant-petal-406618/my-registre/nodesss'
       - .
   - name: gcr.io/cloud-builders/docker
     args:
