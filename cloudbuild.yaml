@@ -1,6 +1,4 @@
 substitutions:
-  _IMAGE_NAME: 'gcr.io/${_PROJECT_ID}/my-app'
-  _TAG_NAME: '0.0.1'
   _REGION: 'us-central1'  # Replace with your preferred region.
   _SERVICE_NAME: 'my-first-service'  # Replace with your preferred Cloud Run service name.
 steps:
