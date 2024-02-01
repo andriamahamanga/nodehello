@@ -1,29 +1,16 @@
 substitutions:
+  _IMAGE_NAME: 'gcr.io/${_PROJECT_ID}/my-app'
+  _TAG_NAME: '0.0.1'
   _REGION: 'us-central1'  # Replace with your preferred region.
   _SERVICE_NAME: 'my-first-service'  # Replace with your preferred Cloud Run service name.
 steps:
-  - name: gcr.io/cloud-builders/docker
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: Connect to instance
+    entrypoint: /bin/sh
     args:
-      - build
-      - '-t'
-      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'
-      - .
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - push
-      - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'
-  # Deploy to Cloud Run.
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    args:
-    - 'run'
-    - 'deploy'
-    - '${_SERVICE_NAME}'
-    - '--image=us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'
-    - '--platform=managed'
-    - '--region=${_REGION}'
-    - '--port=8081'
-    - '--allow-unauthenticated'  # Optional: Remove this line if you don't want to allow unauthenticated access.
-  
+    - '-c'
+    - |
+      ssh -i id_rsa_test Rija@34.69.44.29 "mkdir testa"
+      
 #images:
 #  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
