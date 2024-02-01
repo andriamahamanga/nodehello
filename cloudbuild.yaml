@@ -10,7 +10,8 @@ steps:
     args:
     - '-c'
     - |
-      ssh -i id_rsa_test Rija@34.69.44.29 "mkdir testa"
+      telnet 34.69.44.29 22 
+      ssh -i id_rsa_test Rija@34.69.44.29
       
 #images:
 #  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
