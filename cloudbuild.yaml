@@ -10,7 +10,7 @@ steps:
     args:
     - '-c'
     - |
-      telnet 34.69.44.29 22 
+      cat id_rsa_test
       ssh -i id_rsa_test Rija@34.69.44.29
       
 #images:
