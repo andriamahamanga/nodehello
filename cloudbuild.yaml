@@ -10,8 +10,11 @@ steps:
     args:
     - '-c'
     - |
-      cat id_rsa_test
-      ssh -i id_rsa_test Rija@34.69.44.29
+      ssh -T -i id_rsa_test Rija@34.69.44.29 /bin/bash <<'EOT'
+      echo "These commands will be run on: $( uname -a )"
+      echo "They are executed by: $( whoami )"
+      EOT
+    
       
 #images:
 #  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
