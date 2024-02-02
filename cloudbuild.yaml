@@ -18,7 +18,7 @@ steps:
       chmod 0400 ~/.ssh/deploy.key
       echo -e "Host *\n\tUser $$user\n\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
       ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/deploy.key  $$user@$$host  /bin/bash <<'EOT'
-      echo "These commands will be run on: $( uname -a )"
+      sudo apt-get update && apt-get install -y git
       echo "They are executed by: $( whoami )"
       EOT
     secretEnv: ['ssh_private_kei','user','host']
