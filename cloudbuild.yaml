@@ -16,7 +16,7 @@ steps:
       echo "$$ssh_private_kei" > ~/.ssh/deploy.key
       chmod 600 ~/.ssh/deploy.key
       echo -e "Host $$host\n\tUser $$user\n\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
-      ssh -T -o StrictHostKeyChecking=no $$host  /bin/bash <<'EOT'
+      ssh -T -o StrictHostKeyChecking=no $$user@$$host  /bin/bash <<'EOT'
       echo "These commands will be run on: $( uname -a )"
       echo "They are executed by: $( whoami )"
       EOT
