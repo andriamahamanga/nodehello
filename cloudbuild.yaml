@@ -19,7 +19,7 @@ steps:
     secretEnv: ['ssh_private_kei']
 availableSecrets:
   secretManager:
-  - versionName: projects/418744326158/secrets/Rija
+  - versionName: projects/418744326158/secrets/Rija/versions/latest
     env: 'ssh_private_kei'
       
 #images:
