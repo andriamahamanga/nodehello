@@ -10,17 +10,24 @@ steps:
     args:
     - '-c'
     - |
-      echo "$$ssh_private_kei" > deploy.key
-      chmod 600 deploy.key
-      ssh -T -o StrictHostKeyChecking=no -i deploy.key Rija@34.135.197.43 /bin/bash <<'EOT'
+      mkdir -p ~/.ssh
+      chmod 0700 ~/.ssh
+      touch ~/.ssh/config
+      echo "$$ssh_private_kei" > ~/.ssh/deploy.key
+      chmod 600 ~/.ssh/deploy.key
+      echo -e "Host $$host\n\tUser $$user\n\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
+      ssh -T -o StrictHostKeyChecking=no $$host  /bin/bash <<'EOT'
       echo "These commands will be run on: $( uname -a )"
       echo "They are executed by: $( whoami )"
       EOT
-    secretEnv: ['ssh_private_kei']
+    secretEnv: ['ssh_private_kei','user','host']
 availableSecrets:
   secretManager:
   - versionName: projects/418744326158/secrets/Rija/versions/latest
     env: 'ssh_private_kei'
-      
+  - versionName: projects/418744326158/secrets/user/versions/latest
+    env: 'user'
+  - versionName: projects/418744326158/secrets/host/versions/latest
+    env: 'host'
 #images:
 #  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
