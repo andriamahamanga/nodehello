@@ -12,7 +12,7 @@ steps:
     - |
       echo "$$ssh_private_kei" > deploy.key
       chmod 600 deploy.key
-      ssh -T -o StrictHostKeyChecking=no -i deploy.key Rija@34.69.44.29 /bin/bash <<'EOT'
+      ssh -T -o StrictHostKeyChecking=no -i deploy.key Rija@34.135.197.43 /bin/bash <<'EOT'
       echo "These commands will be run on: $( uname -a )"
       echo "They are executed by: $( whoami )"
       EOT
