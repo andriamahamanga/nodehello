@@ -1,0 +1,34 @@
+substitutions:
+  _IMAGE_NAME: 'gcr.io/${_PROJECT_ID}/my-app'
+  _TAG_NAME: '0.0.1'
+  _REGION: 'us-central1'  # Replace with your preferred region.
+  _SERVICE_NAME: 'my-first-service'  # Replace with your preferred Cloud Run service name.
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: Connect to instance
+    entrypoint: /bin/sh
+    args:
+    - '-c'
+    - |
+      mkdir -p ~/.ssh
+      chmod 0700 ~/.ssh
+      touch ~/.ssh/config
+      echo "$$ssh_private_kei" > ~/.ssh/deploy.key
+      chmod 0600 ~/.ssh/config
+      chmod 0400 ~/.ssh/deploy.key
+      echo -e "Host *\n\tUser $$user\n\tIdentityFile ~/.ssh/deploy.key" >> ~/.ssh/config
+      ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/deploy.key  $$user@$$host  /bin/bash <<'EOT'
+      sudo apt-get update && sudo apt-get install -y git
+      echo "They are executed by: $( whoami )"
+      EOT
+    secretEnv: ['ssh_private_kei','user','host']
+availableSecrets:
+  secretManager:
+  - versionName: projects/418744326158/secrets/Rija/versions/latest
+    env: 'ssh_private_kei'
+  - versionName: projects/418744326158/secrets/user/versions/latest
+    env: 'user'
+  - versionName: projects/418744326158/secrets/host/versions/latest
+    env: 'host'
+#images:
+#  - 'us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest'  # Reference the dynamic image name and tag.
