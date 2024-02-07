@@ -5,7 +5,6 @@ steps:
         "build",
         "-t",
         "us-central1-docker.pkg.dev/vibrant-petal-406618/my-registre/nodes:latest",
-        "-f",
         ".",
       ]
 
